@@ -94,7 +94,7 @@ def create_cognito_accounts():
 
 def clear_dynamo_tables():
     # clear all data from the tables that will be used for testing
-    dbd_client = boto3.client('dynamodb')
+    dbd_client = boto3.client('dynamodb',region_name='us-west-2')
     db_response = dbd_client.scan(
         TableName=globalConfig['UsersTable'],
         AttributesToGet=['userid']
